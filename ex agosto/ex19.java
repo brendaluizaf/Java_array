@@ -3,32 +3,36 @@ public class ex19 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        int MAX_DIAS = 10;
-        double[] precosAcao = new double[MAX_DIAS];
+        String[] nome = new String[5];
+        int[] tempo = new int[5];
         
+        for (int i = 0; i < 5; i++){
+            System.out.print("Adicione um nome " + (i + 1) + ": ");
+            nome[i]= scanner.nextLine();
+
         // Registro dos preços da ação
-        for (int i = 0; i < MAX_DIAS; i++) {
-            System.out.print("Digite o preço da ação no dia " + (i + 1) + ": ");
-            precosAcao[i] = scanner.nextDouble();
-        }
-        
-        double maiorVariacao = 0;
-        int diaInicio = 0;
-        int diaFim = 0;
-        
-        // Cálculo da maior variação de preço
-        for (int i = 1; i < MAX_DIAS; i++) {
-            double variacao = (precosAcao[i] - precosAcao[i - 1]);
-            if (variacao > maiorVariacao) {
-                maiorVariacao = variacao;
-                diaInicio = i;
-                diaFim = i + 1;
-            }
+        for ( i = 0; i < tempo.length; i++) 
+            System.out.print("Digite o tempo " + (i + 1) + ": ");
+            tempo[i] = scanner.nextInt();
+            scanner.nextLine();
         }
         scanner.close();
         
-        System.out.println("\nMaior variação de preço:");
-        System.out.println("Dia " + diaInicio + " para Dia " + diaFim);
-        System.out.println("Variação: " + maiorVariacao);
+        int indiceVencedor = encontrarVencedor(tempo);
+        System.out.println("O nadador vencedor é: " + nome[indiceVencedor]);
+    }
+
+    public static int encontrarVencedor(int[] tempo) {
+        int indiceVencedor = 0;
+        int menorTempo = tempo[0];
+        
+        for (int i = 1; i < tempo.length; i++) {
+            if (tempo[i] < menorTempo) {
+                menorTempo = tempo[i];
+                indiceVencedor = i;
+            }
+        }
+        
+        return indiceVencedor;
     }  
 }
