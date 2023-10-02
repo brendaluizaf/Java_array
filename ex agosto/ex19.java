@@ -4,22 +4,22 @@ public class ex19 {
         Scanner scanner = new Scanner(System.in);
         
         String[] nome = new String[5];
-        int[] tempo = new int[5];
+        int[] dias = new int[7];
         
-        for (int i = 0; i < 5; i++){
-            System.out.print("Adicione um nome " + (i + 1) + ": ");
+        for (int i = 0; i < nome.length; i++){
+            System.out.println("Adicione um nome " + (i + 1) + ": ");
             nome[i]= scanner.nextLine();
 
         // Registro dos preços da ação
-        for ( i = 0; i < tempo.length; i++) 
-            System.out.print("Digite o tempo " + (i + 1) + ": ");
-            tempo[i] = scanner.nextInt();
-            scanner.nextLine();
+        for ( i = 0; i < dias.length; i++) 
+            System.out.println("Digite a quantidade de calorias " + (i + 1) + ": ");
+            dias[i] = scanner.nextInt();
+        
         }
         scanner.close();
         
-        int indiceVencedor = encontrarVencedor(tempo);
-        System.out.println("O nadador vencedor é: " + nome[indiceVencedor]);
+        int indiceVencedor = encontrarVencedor(dias);
+        System.out.println("quem consumiu maior quantidade de calorias foi: " + nome[indiceVencedor]);
     }
 
     public static int encontrarVencedor(int[] tempo) {
